@@ -34,7 +34,8 @@ const User = new Schema({
     },
     authentication: {
         type: Boolean,
-        default: false
+        default: false,
+        required: true
     },
     location: {
         postcode: Number,

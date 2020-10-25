@@ -1,11 +1,6 @@
 const {model, Schema} = require('mongoose');
 
-const Data = new Schema({
-    type: {
-        type: String,
-        enum: ['region','community','poblation'],
-        requiered: true
-    },
+const Community = new Schema({
     name: {
         type: String,
         required: true
@@ -16,9 +11,12 @@ const Data = new Schema({
     },
     confirmedCases: Number,
     hospitalCheckIn: Number,
+    uciCheckIn: Number,
+    deaths: Number,
+    discharges: Number,
     hospitalBed: Number,
     uciBed: Number,
     casesIncrement: Number
 });
 
-module.exports = model('Data', Data)
+module.exports = model('Community', Community)
