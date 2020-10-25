@@ -31,3 +31,8 @@ ejemplo
 http://localhost:8080/public/datos-community/navarra
 
 actualmente la BD está vacia así que no devolverá nada :(
+
+AÑADIR AL .env:
+
+REGION_URL='https://www.aragon.es/documents/20127/38742837/casos_coronavirus_provincias.csv'
+COMMUNITY_URL='https://www.aragon.es/documents/20127/38742837/casos_coronavirus_aragon.csv'
