@@ -5,24 +5,18 @@ const dotenv = require('dotenv')
 const morgan = require('morgan');
 
 const public = require('./routes/public')
+const job = require('./services/cron')
 
 const cors = require('cors')
 
 const app = express()
 
-
-const {cronclock} = require('./services/cron')
-
-
-
 // ----------------------- CONFIG -----------------------//
 
 dotenv.config() 
-cronclock()
-
-/*
-
+job.start();
 app.set('port', process.env.PORT || 8080) 
+
 //----------------------- DATA CONNECTION -----------------------//
 
 mongoose.connect(process.env.DB || 'mongodb://localhost:27017/covid',
@@ -49,4 +43,3 @@ app.listen(app.get('port'), () => {
     console.log('Server successfully started!',app.get('port'))
 });
 
-*/
