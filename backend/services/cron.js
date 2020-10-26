@@ -118,10 +118,6 @@ const RegionUpdate = async() => {
             console.log(region);
 
             const dataExist = await Region.update({$and:[{date : region.date},{name : region.name}]},region,{upsert: true, setDefaultsOnInsert: true})
-
-            if(!dataExist){
-                await Region.save()
-            }
         })
     })
 
@@ -159,10 +155,6 @@ const CommunityUpdate = async() => {
             })
             const dataExist = await Community.update({$and:[{date : community.date},{name : community.name}]},community,{upsert: true, setDefaultsOnInsert: true})
 
-            if(!dataExist){
-                await Community.save()
-            }
-           
         })
     })
 
@@ -177,5 +169,4 @@ const job = new Cronjob('0 0 0 * * *', () => {
     RegionUpdate();
     CommunityUpdate();
 })
-
 module.exports = job;

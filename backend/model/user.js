@@ -11,7 +11,12 @@ const User = new Schema({
         required: true,
         max: 50
     },
-    
+    rol: {
+        type: String,
+        required: true,
+        enum: ['admin','user'],
+        default: 'user'
+    },
     password: {
         type: String,
         required: true,
@@ -32,7 +37,7 @@ const User = new Schema({
         required: false,
         enum: ['male','female','other']
     },
-    authentication: {
+    verification: {
         type: Boolean,
         default: false,
         required: true
