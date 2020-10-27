@@ -1,15 +1,17 @@
 const {model, Schema} = require('mongoose')
 
 const User = new Schema({
-    name: {
-        type: String,
-        required: true,
-        max: 50,
-    },
-    surname: {
-        type: String,
-        required: true,
-        max: 50
+    user: {
+        name: {
+            type: String,
+            required: true,
+            max: 50,
+        },
+        surname: {
+            type: String,
+            required: true,
+            max: 50
+        }
     },
     rol: {
         type: String,
@@ -26,7 +28,6 @@ const User = new Schema({
     birthdate: {
         type: Date,
         required: true,
-        default: Date.now()
     },
     email: {
         type: String,
@@ -37,7 +38,7 @@ const User = new Schema({
         required: false,
         enum: ['male','female','other']
     },
-    verification: {
+    verificated: {
         type: Boolean,
         default: false,
         required: true

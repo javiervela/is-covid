@@ -2,13 +2,12 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-const morgan = require('morgan');
+const morgan = require('morgan')
 
 
-//const public = require('./routes/public')
+const public = require('./routes/public')
 const job = require('./services/cron')
-
-
+//const {sendEmail} = require('./services/mail')
 
 const cors = require('cors')
 
@@ -17,10 +16,7 @@ const app = express()
 // ----------------------- CONFIG -----------------------//
 
 dotenv.config()
-const {sendEmail} = require('./services/mail')
-sendEmail('javier.vela00@gmail.com','prueba', 'hola')
 
-/*
 job.start()
 app.set('port', process.env.PORT || 8032) 
 
@@ -49,4 +45,4 @@ app.use('/public', public)
 app.listen(app.get('port'), () => {
     console.log('Server successfully started!',app.get('port'))
 });
-*/
+

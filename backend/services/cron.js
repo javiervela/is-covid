@@ -3,8 +3,8 @@ const { csv } = require('csvtojson')
 const fs = require('fs')
 const axios = require('axios');
 
-const Region = require('../model/region');
-const Community = require('../model/community')
+const Region = require('../database/model/region');
+const Community = require('../database/model/community')
 
 const folder = __dirname + "/../public/"
 

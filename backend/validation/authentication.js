@@ -1,6 +1,7 @@
 const bycript = require('bcrypt');
-const { sendEmail } = require('../services/mail');
 
+
+const { sendEmail } = require('../services/mail');
 const { userValidation } = require('../validation/validation');
 
 
@@ -27,13 +28,22 @@ const SignUp = async(req,res) => {
     }) 
     const savedUser = await user.save()
 
-    sendEmail(req.body.email,'norepy@user_authentication','clicka para autorizar')
+    const token = jwt.sign({_id: savedUser._id},process.env.TOKEN,{expiresIn: 60});
+
+    sendEmail(req.body.email,'norepy@user_authentication','Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n')
 
     return res.status(201)
 }
 
-const Authentication = async() => {
-
+const Confirmation = async(req,res) => {
+    const token = req.params.token;
+    const verified = jwt.verify(token,process.env.TOKEN);
+    if(verified){
+        const updatedUser = await User.updateOne({_id: req.user.id},{verificated: true})
+        return res.status(200)
+    }else{
+        return res.status(400)
+    }
 }
 
 const SignIn = async(req,res) => {
@@ -54,3 +64,5 @@ const SignIn = async(req,res) => {
     return res.header('auth',token).send('OK').status(200);
 
 }
+
+module.exports = {SignIn,SignUp,Confirmation}

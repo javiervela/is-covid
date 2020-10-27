@@ -1,57 +1,23 @@
 const router = require('express').Router();
-const User = require('../model/user')
-const Region = require('../model/region')
-const Community = require('../model/community')
-const bycript = require('bcrypt');
+
+const auth = require('../validation/authentication')
+const data = require('../database/config/config')
 
 
-router.post('/signUp', SignIn(req,res))
+router.post('/signUp', auth.SignUp)
 
-router.get('/datos-comunidad/:name', async (req, res) => {
-    try{
-        const data = await Community.findOne({name: req.params.name})
-        return res.status(200).send(data)
-    }catch(err){
-        return res.status(402).send('error')
-    }
-});
+router.post('/signIn', auth.SignIn)
 
-router.get('/datos-region/:name', async (req, res) => {
-    try{
-        const data = await Region.findOne({name: req.params.name})
-        return res.status(200).send(data)
-    }catch(err){
-        return res.status(402).send('error')
-    }
-});
+router.post('/confirmation/:token', auth.Confirmation)
 
-router.get('/datos-comunidad/:name/:fecha', async (req, res) => {
-    try{
-        const data = await Community.findOne({$and: [{name: req.params.name},{date : new Date(req.params.fecha)}]})
-        return res.status(200).send(data)
-    }catch(err){
-        return res.status(402).send('error')
-    }
-});
+router.get('/datos-comunidad/:name', data.getCommunityDataByName);
 
-router.get('/datos-region/:name/:fecha', async (req, res) => {
-    try{
-        const data = await Region.findOne({$and: [{name: req.params.name},{date : new Date(req.params.fecha)}]})
-        return res.status(200).send(data)
-    }catch(err){
-        return res.status(402).send('error')
-    }
-});
+router.get('/datos-region/:name', data.getRegionDataByName);
 
-/*
-router.get('/datos-poblation/:name', async (req, res) => {
-    try{
-        const data = await Data.findOne({$and: [{name: req.params.name},{type: 'poblation'}]})
-        return res.status(200).send(data)
-    }catch(err){
-        return res.status(402).send('error')
-    }
-});
-*/
+router.get('/datos-comunidad/:name/:fecha', data.getCommunityDataByDate);
+
+router.get('/datos-region/:name/:fecha', data.getRegionDataByDate);
+
+
 module.exports = router;
 
