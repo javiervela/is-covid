@@ -2,8 +2,8 @@ const bycript = require('bcrypt');
 
 
 const { sendEmail } = require('../services/mail');
-const { userValidation } = require('../validation/validation');
-
+//const { userValidation } = require('../validation/validation');
+const User = require('../database/model/user')
 
 const SignUp = async(req,res) => {
 /*
@@ -63,6 +63,10 @@ const SignIn = async(req,res) => {
     const token = jwt.sign({_id: user._id},process.env.TOKEN);
     return res.header('auth',token).send('OK').status(200);
 
+}
+
+const SignOut = async(req,res) => {
+    
 }
 
 module.exports = {SignIn,SignUp,Confirmation}

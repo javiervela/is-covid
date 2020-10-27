@@ -1,7 +1,14 @@
+// To develop : model access functions 
+// subscribe a user
+// update poblation, region, community
+// valid a user
+// get Users
+// ....
+// change file name
 const Region = require('../model/region')
 const Community = require('../model/community')
 
-const getCommunityDataByName = async (req, res) => {
+const getCommunityDataByName = async(req, res) => {
     try{
         const data = await Community.findOne({name: req.params.name})
         return res.status(200).send(data)
@@ -10,7 +17,7 @@ const getCommunityDataByName = async (req, res) => {
     }
 }
 
-const getRegionDataByName = async (req, res) => {
+const getRegionDataByName = async(req, res) => {
     try{
         const data = await Region.findOne({name: req.params.name})
         return res.status(200).send(data)

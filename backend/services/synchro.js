@@ -1,10 +1,11 @@
-const Cronjob = require('cron').CronJob;
-const { csv } = require('csvtojson')
 const fs = require('fs')
 const axios = require('axios');
 
+// To develop: crear funciones que interaccionen con la BBDD y no directamente con el schema
 const Region = require('../database/model/region');
 const Community = require('../database/model/community')
+
+const { csv } = require('csvtojson')
 
 const folder = __dirname + "/../public/"
 
@@ -89,7 +90,6 @@ const CommunityInit = async() => {
     })
 }
 
-
 const RegionUpdate = async() => {
 
     const writer = fs.createWriteStream(folder + "Aragon_Region.csv")
@@ -162,11 +162,4 @@ const CommunityUpdate = async() => {
         console.log(err)
     })
 }
-
-
-
-const job = new Cronjob('0 0 0 * * *', () => {
-    RegionUpdate();
-    CommunityUpdate();
-})
-module.exports = job;
+module.exports = {RegionInit, CommunityInit, RegionUpdate, CommunityUpdate};
