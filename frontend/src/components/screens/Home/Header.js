@@ -2,11 +2,17 @@ import React from 'react';
 
 import "./Header.css"
 
+import Map from "./Home-Component/map"
+
 const Header = () => {
+ 
+  
+
+
   return(
-	<section>
-        Mapa España
-    </section>
+
+      <Map></Map>
+
   );
 }
 
