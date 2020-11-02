@@ -1,44 +1,89 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
-//import "./Map.css"
 
 import { VectorMap } from '@south-paw/react-vector-maps';
 
 import spain from '../../../../spain.json'
+import aragon from '../../../../aragon.json'
 import history from '../../../../history'
+import Modall from './Modal';
 
-const Map = () => {
- 
-    const Spain = styled.div`
-    margin: 1rem auto;
-    width: 800px;
-  
-    svg {
-      stroke: #fff;
+const Spain = styled.div`
+margin: 1rem auto;
+width: 800px;
 
-      path {
-        fill: pink;
-        cursor: pointer;
-        outline: none;
-  
-        &:hover {
-          fill: red;
-        }
-      }
+svg {
+  stroke: #fff;
+
+  path {
+    fill: pink;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      fill: red;
     }
-  `;
+  }
+}`;
+
+const Aragon = styled.div`
+margin: 1rem auto;
+width: 1500px;
+
+svg {
+  stroke: #fff;
+
+  path {
+    fill: pink;
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      fill: red;
+    }
+  }
+}`
+
+const Map = props => {
+
+  const [Show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const [Mmap,SetMmap] = useState(spain)
+  const [Style,SetStyle] = useState(Spain)
+
+  useEffect(() => {
+    switch (props.map) {
+      case 'Aragon':
+        SetMmap(aragon)
+        SetStyle(Aragon)
+        break;
+      case 'España':
+        SetMmap(spain)
+        SetStyle(Spain)
+        break;
+      default:
+        break;
+    }
+  },[props])
+
+
   const onClick = ({target}) => {
     const name = target.attributes.name.value;
-    console.log(name)
-    if (name === "Aragon"){
-      history.push('/login')
+    if (name !== "Aragon"){
+      handleShow()
+    }else{
+      history.push(`/home/${name}`)
     }
   }
 
   return(
-    <Spain>
-      <VectorMap {...spain}  layerProps={ {onClick} }/>
-    </Spain>
+    <Style>
+      <Modall show={Show} handleClose={handleClose}/>
+      <VectorMap {...Mmap}  layerProps={ {onClick} }/>
+    </Style>
   );
 }
 

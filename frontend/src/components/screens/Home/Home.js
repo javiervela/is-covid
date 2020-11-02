@@ -10,7 +10,7 @@ const Home = props => {
 
   const [HistorialCasos , setHistorialCasos] = useState([])
   const [HistorialDiario , setHistorialDiario] = useState([])
-  const [Fecha,setFecha] = useState([])
+  //const [Fecha,setFecha] = useState([])
 
   const [Daily, setDaily] = useState({
     casosTotales: 0,
@@ -27,7 +27,7 @@ const Home = props => {
       try{
         const res = await axios.get('http://localhost:8080/public/datos-comunidad/',{
           params: {
-            name: props.name
+            name: props.match.params.name
           }
         })
         const daily = {
@@ -40,14 +40,14 @@ const Home = props => {
           ingresosUci: res.data[res.data.length-1].uciCheckIn
         }
         setDaily(daily)
-        console.log(daily)
+  
 
         var fecha = []
         for (let index = 0; index < res.data.length; index++) {
           fecha = [...fecha,index]
         }
 
-        setFecha(fecha)
+        //setFecha(fecha)
         
         var historialCasos = []
         var historialDiario = []
@@ -64,19 +64,28 @@ const Home = props => {
         setHistorialDiario(historialDiario)
 
         setHistorialCasos(historialCasos)
-        console.log(historialCasos)
         
       }catch(err){
-        console.log(err)
+        setDaily({
+          casosTotales: 0,
+          casosDiarios: 0,
+          defunciones: 0,
+          camasOcupadas: 0,
+          ingresosHospitalarios: 0,
+          camasUciOcupadas: 0,
+          ingresosUci: 0
+        
+        })
+        console.log("not implemented")
       }
     }
     fetchData()
-  },[])
+  },[props])
 
   return(
 	<section>
     	<section className="section">
-    	  <Header/>
+    	  <Header map={props.match.params.name}/>
     	</section>
 		<section className="section" >
     		<Footer d={Daily} g1={HistorialCasos} g2={HistorialDiario} g3={HistorialDiario}/>

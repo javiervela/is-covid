@@ -87,14 +87,13 @@ form{
 	color: #38d39f;
 }
 
-.btnIn{
+.btn{
 	display: block;
 	width: 100%;
 	height: 50px;
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;
@@ -104,28 +103,7 @@ form{
 	cursor: pointer;
 	transition: .5s;
 }
-.btnIn:hover{
+.btn:hover{
 	background-position: right;
 }
 
-.btnUp{
-	display: block;
-	width: 100%;
-	height: 50px;
-	border-radius: 25px;
-	outline: none;
-	border: none;
-	/*background-image: linear-gradient(to right, #EA4C46, #F07470, #F1959B);
-	*/background-size: 200%;
-	font-size: 1.2rem;
-	color: #fff;
-	font-family: 'Poppins', sans-serif;
-	text-transform: uppercase;
-	margin: 1rem 0;
-	cursor: pointer;
-	transition: .5s;
-}
-
-.btnUp:hover{
-	background-position: right;
-}

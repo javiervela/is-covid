@@ -17,9 +17,11 @@ function App() {
     <div className="App">
       <Router history={history}>
         <NavBar/>
-        <Route path="/" exact render={() => <Home name="Aragon"/>} ></Route>
-        <Route path="/login" component={SignIn}></Route>
-        <Route path="/signup" component={SignUp}></Route>
+        <Route path="/" exact render={ ()=>{history.push('/home/España')} }/>
+        <Route path="/login" exact component={SignIn}></Route>
+        <Route path="/signup" exact component={SignUp}></Route>
+        <Route path="/home/:name" exact component={Home} ></Route>
+        
       </Router>
     </div>
   );

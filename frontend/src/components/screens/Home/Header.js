@@ -4,10 +4,7 @@ import "./Header.css"
 
 import Map from "./Home-Component/Map"
 
-const Header = () => {
- 
-  
-
+const Header = props => {
 
   return(
       <section>
@@ -42,7 +39,7 @@ const Header = () => {
           </section>
             <button className="btn-home" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} >Search</button>
         </section>
-        <Map></Map>
+        <Map map={props.map}></Map>
       </section>
 
   );
