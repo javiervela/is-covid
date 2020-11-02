@@ -11,7 +11,7 @@ const Map = () => {
  
     const Spain = styled.div`
     margin: 1rem auto;
-    width: 600px;
+    width: 800px;
   
     svg {
       stroke: #fff;

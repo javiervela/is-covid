@@ -1,113 +1,26 @@
-import React, { useEffect } from 'react';
-
-import { Line } from 'react-chartjs-2'
+import React from 'react';
 
 import "./Footer.css"
+import Graphic from "./Home-Component/Graphic"
+import Stats from "./Home-Component/Stats"
 
-
-const data1 = {
-  labels: ['1', '2', '3', '4', '5', '6'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      fill: false,
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'rgba(255, 99, 132, 0.2)',
-    },
-  ],
-}
-
-const data2 = {
-  labels: ['1', '2', '3', '4', '5', '6'],
-  datasets: [
-    {
-      label: '# of Votes',
-      data: [5, 11, 3, 15, 2, 4],
-      fill: false,
-      backgroundColor: 'rgb(155, 69, 132)',
-      borderColor: 'rgba(24, 145, 132, 0.2)',
-    },
-  ],
-}
-
-const options = {
-  scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-      },
-    ],
-  },
-}
-
-const Footer = (props) => {
-
-  useEffect(() => {
-    const getData = async() =>{
-
-    }
-    getData()
-  },[props.comunidad])
+const Footer = props => {
 
   return(
     <section className="class_container">
       <section className="grid_row">
-        <section className="item card hover">
-          <Line data={data1} options={options}/>
-        </section>
-        <section className="item list_container">
-          <section className="data hover">
-            <section className="data_head" style={{backgroundColor: 'pink'}}>
-              <b>256</b>
-            </section>
-            <section className="data_body">
-              <b>  {props.comunidad}</b>
-            </section>
-          </section>
-		      <section className="data hover">
-            <section className="data_head" style={{backgroundColor: 'pink'}}>
-              <b>256</b>
-            </section>
-            <section className="data_body">
-              <b>  INGRESOS HOSPITALARIOS</b>
-            </section>
-          </section>
-		      <section className="data hover">
-            <section className="data_head" style={{backgroundColor: 'pink'}}>
-              <b>256</b>
-            </section>
-            <section className="data_body">
-              <b>  INGRESOS HOSPITALARIOS</b>
-            </section>
-      		</section>
-			  <section className="data hover">
-            <section className="data_head" style={{backgroundColor: 'pink'}}>
-              <b>256</b>
-            </section>
-            <section className="data_body">
-              <b>  INGRESOS HOSPITALARIOS</b>
-            </section>
-      		</section>
-		  <section className="data hover">
-            <section className="data_head" style={{backgroundColor: 'pink'}}>
-              <b>256</b>
-            </section>
-            <section className="data_body">
-              <b>  INGRESOS HOSPITALARIOS</b>
-            </section>
-          </section>
+        <Graphic data={props.g1} name="Casos diarios"/>
+        <section className="item list_container"> 
+          <Stats name="Casos diarios" data={props.d.casosDiarios}/>
+		      <Stats name="Casos totales" data={props.d.casosTotales}/>
+		      <Stats name="Defunciones" data={props.d.defunciones}/>
+          <Stats name="Ingresos hospitalarios" data={props.d.ingresosHospitalarios}/>  	
+          <Stats name="Ingreos UCI" data={props.d.ingresosUci}/>
         </section>
       </section>
       <section className="grid_row">
-        <section className="item card hover">
-          <Line data={data2} options={options}/>
-        </section>
-        <section className="item card hover">
-          <Line data={data1} options={options}/>
-        </section>
+        <Graphic data={props.g2}/>
+        <Graphic data={props.g3}/>
       </section>
 	<button className="button"><b>Share</b></button>
     </section>

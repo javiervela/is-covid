@@ -4,7 +4,3 @@
     height: 100vh ;
 }
 
-.container{
-    scroll-snap-type: y mandatory;
-    overflow-y: scroll;
-}
