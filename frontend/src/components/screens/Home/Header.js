@@ -7,7 +7,7 @@ import Map from "./Home-Component/Map"
 const Header = props => {
 
   return(
-      <section>
+      <section className="header">
         <section className="search">
           <section className="selectors">
             <section className="inputform">

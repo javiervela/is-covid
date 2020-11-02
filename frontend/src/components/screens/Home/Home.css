@@ -1,4 +1,12 @@
-.section{
-    height: 100vh;
+.home{
+
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
     background-color: #EAEDED;
+    height: 100vh ;
+}
+.section{
+    background-color: #EAEDED;
+    scroll-snap-align: start;
+    height: 100vh ;
 }

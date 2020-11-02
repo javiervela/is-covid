@@ -83,13 +83,16 @@ const Home = props => {
   },[props])
 
   return(
-	<section>
-    	<section className="section">
+	<section className="home">
+    <section className="section">
     	  <Header map={props.match.params.name}/>
-    	</section>
+    </section>
 		<section className="section" >
     		<Footer d={Daily} g1={HistorialCasos} g2={HistorialDiario} g3={HistorialDiario}/>
-    	</section>
+    </section>
+    <section className="section" >
+    	<Footer d={Daily} g1={HistorialCasos} g2={HistorialDiario} g3={HistorialDiario}/>
+    </section>
 	</section>
   );
 }

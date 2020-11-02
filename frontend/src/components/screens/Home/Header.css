@@ -1,3 +1,6 @@
+.header{
+    padding-top: 20px;
+}
 .search{
     display: flex;
     height: 8vh;
