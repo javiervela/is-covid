@@ -79,8 +79,8 @@ const SignUp = () => {
                         <section className="line"></section>
                         <section className="input-section email">
                             <section/>
-                            <div class="form-group col-md-4">
-                                <select id="inputState" class="form-control">
+                            <div className="form-group col-md-4">
+                                <select id="inputState" className="form-control">
                                     <option selected>Sexo</option>
                                     <option>Hombre</option>
                                     <option>Mujer</option>

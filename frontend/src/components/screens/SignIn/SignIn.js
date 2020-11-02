@@ -2,6 +2,8 @@ import React from 'react';
 import logo from '../../../avatar.svg'
 import './SignIn.css';
 
+import history from "../../../history"
+
 const SignIn = () => {
         return(
             <section className="content">
@@ -40,7 +42,7 @@ const SignIn = () => {
                     <section className="line"></section>
                     <a className="login-component" href="google.com">Forgot Password?</a>
             	    <input type="submit" className="btnIn" value="Login"></input>
-                    <button className="btnUp" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} >SignUp</button>
+                    <button className="btnUp" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signup');}}>SignUp</button>
                 </form>
             </section>
         );

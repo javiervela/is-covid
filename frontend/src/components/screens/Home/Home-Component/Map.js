@@ -4,7 +4,9 @@ import styled from 'styled-components';
 
 import { VectorMap } from '@south-paw/react-vector-maps';
 
-import spain from '../../../../spain-provinces.json'
+import spain from '../../../../spain.json'
+import history from '../../../../history'
+
 const Map = () => {
  
     const Spain = styled.div`
@@ -13,26 +15,30 @@ const Map = () => {
   
     svg {
       stroke: #fff;
-  
-      // All layers are just path elements
+
       path {
         fill: pink;
         cursor: pointer;
         outline: none;
   
-        // When a layer is hovered
         &:hover {
           fill: red;
         }
       }
     }
   `;
-
+  const onClick = ({target}) => {
+    const name = target.attributes.name.value;
+    console.log(name)
+    if (name === "Aragon"){
+      history.push('/login')
+    }
+  }
 
   return(
     <Spain>
-    <VectorMap {...spain}  />
-  </Spain>
+      <VectorMap {...spain}  layerProps={ {onClick} }/>
+    </Spain>
   );
 }
 

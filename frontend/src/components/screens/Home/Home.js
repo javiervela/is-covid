@@ -4,14 +4,15 @@ import Header from './Header';
 
 import "./Home.css"
 
-const Home = () => {
+const Home = props => {
+
   return(
 	<section>
     <section className="section">
-    	<Header/>
+      <Header/>
     </section>
-	<section className="section">
-    	<Footer/>
+	<section className="section" >
+    	<Footer  comunidad={props.comunidad}/>
     </section>
 	</section>
   );

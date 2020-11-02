@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Line } from 'react-chartjs-2'
 
@@ -43,11 +43,17 @@ const options = {
   },
 }
 
-const Footer = () => {
+const Footer = (props) => {
+
+  useEffect(() => {
+    const getData = async() =>{
+
+    }
+    getData()
+  },[props.comunidad])
+
   return(
     <section className="class_container">
-
-      
       <section className="grid_row">
         <section className="item card hover">
           <Line data={data1} options={options}/>
@@ -58,7 +64,7 @@ const Footer = () => {
               <b>256</b>
             </section>
             <section className="data_body">
-              <b>  INGRESOS HOSPITALARIOS</b>
+              <b>  {props.comunidad}</b>
             </section>
           </section>
 		      <section className="data hover">
