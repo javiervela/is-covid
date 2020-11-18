@@ -1,7 +1,10 @@
-1- componer clase grafica y clase lista
-1.1- Mejorar Css SignIn, Up
-2- modernizar clase sign in a react hooks
-3- crear screen signup
-4- Home :
-4.1 - Carrousel
-4.2 - Mapa de españa
+- formatear css's
+- Auth valitation and passing token
+- Mejorar mapa españa
+- mapear stadistic
+- Acabar estadisticas con paso de fecha
+- implementar region aragon ¿ nueva clase only footer?
+- redistribuir directorios
+- share
+- colores
+- model graphic

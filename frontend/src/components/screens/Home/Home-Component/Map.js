@@ -10,7 +10,7 @@ import Modall from './Modal';
 
 const Spain = styled.div`
 margin: 1rem auto;
-width: 800px;
+width: 1200px;
 
 svg {
   stroke: #fff;
@@ -28,7 +28,7 @@ svg {
 
 const Aragon = styled.div`
 margin: 1rem auto;
-width: 1500px;
+width: 1700px;
 
 svg {
   stroke: #fff;
@@ -72,10 +72,13 @@ const Map = props => {
 
   const onClick = ({target}) => {
     const name = target.attributes.name.value;
-    if (name !== "Aragon"){
-      handleShow()
+    
+    if (name === "Aragon"){
+      history.push(`/España/${name}`)
+    }else if(name === "Zaragoza" || name === "Teruel" || name === "Huesca" ){
+      history.push(`/España/Aragon/${name}`)
     }else{
-      history.push(`/home/${name}`)
+      handleShow()
     }
   }
 

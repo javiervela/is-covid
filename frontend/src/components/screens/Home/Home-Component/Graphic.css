@@ -1,0 +1,10 @@
+.full_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    min-height: 85%;
+    min-width: 85%;
+
+}

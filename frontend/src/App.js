@@ -1,9 +1,11 @@
 import React from 'react';
 
 import NavBar from './components/NavBar'
-import Home from './components/screens/Home/Home'
+import Country from './components/screens/Home/Country'
 import SignIn from './components/screens/SignIn/SignIn'
-import SignUp from './components/screens/SignUp/SignUp';
+import SignUp from './components/screens/SignUp/SignUp'
+import Province from './components/screens/Home/Province'
+import Region from './components/screens/Home/Region'
 
 import history from './history'
 
@@ -17,10 +19,12 @@ function App() {
     <div className="App">
       <Router history={history}>
         <NavBar/>
-        <Route path="/" exact render={ ()=>{history.push('/home/España')} }/>
+        <Route path="/" exact render={ ()=>{history.push('/España')} }/>
         <Route path="/login" exact component={SignIn}></Route>
         <Route path="/signup" exact component={SignUp}></Route>
-        <Route path="/home/:name" exact component={Home} ></Route>
+        <Route path="/España" exact component={Country}></Route>
+        <Route path="/España/:province" exact component={Province} ></Route>
+        <Route path="/España/:province/:region" exact component={Region} ></Route>
         
       </Router>
     </div>

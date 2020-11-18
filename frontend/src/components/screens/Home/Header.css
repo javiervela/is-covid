@@ -4,10 +4,10 @@
 .search{
     display: flex;
     height: 8vh;
-    width: 50%;
+    width: 40%;
     border-radius: 100px;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin-left: 30%;
+    margin-right: 30%;
     margin-top: 20px;
     margin-bottom: 30px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

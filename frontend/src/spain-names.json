@@ -1,0 +1,39 @@
+{
+    "comunidad": [
+        {
+            "nombre" : "Aragon",
+            "proviencia" : [
+                {"nombre" : "Zaragoza"},
+                {"nombre" : "Teruel"},
+                {"nombre" : "Huesca"}
+            ]
+        },
+        {
+            "nombre" : "Navarra",
+            "proviencia" : [
+            ]
+        },
+        {
+            "nombre" : "Asturias",
+            "proviencia" : [
+            ]
+        },
+        {
+            "nombre" : "País Vasco",
+            "proviencia" : [
+                {"nombre" : "Alaba"},
+                {"nombre" : "Vizcaya"},
+                {"nombre" : "Guipuzcoa"}
+            ]
+        },
+        {
+            "nombre" : "Cataluña",
+            "proviencia" : [
+                {"nombre" : "Barcelona"},
+                {"nombre" : "Lleida"},
+                {"nombre" : "Girona"},
+                {"nombre" : "Tarragona"}
+            ]
+        }
+    ]
+}
