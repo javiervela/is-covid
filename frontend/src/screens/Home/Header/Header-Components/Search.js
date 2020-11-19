@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import history from '../../../../history'
-import sp from "../../../../spain-names.json"
+import sp from "../../../../public/spain-names.json"
 
 const Search = props => {
     const [Comunidad,setComunidad] = useState([])

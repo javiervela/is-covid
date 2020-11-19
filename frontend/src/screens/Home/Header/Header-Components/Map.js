@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 import { VectorMap } from '@south-paw/react-vector-maps';
 
-import spain from '../../../../spain.json'
-import aragon from '../../../../aragon.json'
+import spain from '../../../../public/spain.json'
+import aragon from '../../../../public/aragon.json'
 import history from '../../../../history'
 import Modall from '../../../../components/Modal';
 

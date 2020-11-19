@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../avatar.svg'
+import logo from '../../public/avatar.svg'
 import './SignIn.css';
 
 import history from "../../history"
