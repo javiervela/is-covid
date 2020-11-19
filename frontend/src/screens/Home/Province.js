@@ -1,10 +1,11 @@
 import React, {useEffect,useState} from 'react';
-import Footer from'./Footer'
+import Footer from'./Footer/Footer'
+import Header from './Header/Header'
 import axios from 'axios'
 
 import "./Home.css"
 
-import Header from './Header'
+
 
 const Province = props => {
 

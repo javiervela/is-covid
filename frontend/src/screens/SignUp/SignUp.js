@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from '../../../avatar.svg'
+import logo from '../../avatar.svg'
 import './SignUp.css';
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import DatePicker from "react-modern-calendar-datepicker";

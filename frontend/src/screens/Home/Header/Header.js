@@ -2,8 +2,8 @@ import React from 'react';
 
 import "./Header.css"
 
-import Map from "./Home-Component/Map"
-import Search from './Home-Component/Search'
+import Map from "./Header-Components/Map"
+import Search from './Header-Components/Search'
 
 const Header = props => {
 

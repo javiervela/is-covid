@@ -1,11 +1,11 @@
 import React from 'react';
 
 import NavBar from './components/NavBar'
-import Country from './components/screens/Home/Country'
-import SignIn from './components/screens/SignIn/SignIn'
-import SignUp from './components/screens/SignUp/SignUp'
-import Province from './components/screens/Home/Province'
-import Region from './components/screens/Home/Region'
+import Country from './screens/Home/Country'
+import SignIn from './screens/SignIn/SignIn'
+import SignUp from './screens/SignUp/SignUp'
+import Province from './screens/Home/Province'
+import Region from './screens/Home/Region'
 
 import history from './history'
 

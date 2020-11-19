@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react';
-import Footer from'./Footer'
+import Footer from'./Footer/Footer'
 import axios from 'axios'
 
 import "./Home.css"

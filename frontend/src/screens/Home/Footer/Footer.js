@@ -1,8 +1,8 @@
 import React from 'react';
 
 import "./Footer.css"
-import Graphic from "./Home-Component/Graphic"
-import Stats from "./Home-Component/Stats"
+import Graphic from "./Footer-Components/Graphic"
+import Stats from "./Stats"
 
 
 

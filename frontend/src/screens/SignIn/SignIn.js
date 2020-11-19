@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from '../../../avatar.svg'
+import logo from '../../avatar.svg'
 import './SignIn.css';
 
-import history from "../../../history"
+import history from "../../history"
 
 const SignIn = () => {
         return(

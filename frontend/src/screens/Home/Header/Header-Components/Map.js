@@ -6,7 +6,7 @@ import { VectorMap } from '@south-paw/react-vector-maps';
 import spain from '../../../../spain.json'
 import aragon from '../../../../aragon.json'
 import history from '../../../../history'
-import Modall from './Modal';
+import Modall from '../../../../components/Modal';
 
 const Spain = styled.div`
 margin: 1rem auto;
