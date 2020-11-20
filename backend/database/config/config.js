@@ -9,8 +9,10 @@ const Region = require('../model/region')
 const Community = require('../model/community')
 
 const getCommunityDataByName = async(req, res) => {
+    console.log(req.query.name)
     try{
-        const data = await Community.findOne({name: req.params.name})
+        
+        const data = await Community.find({name: req.query.name})
         return res.status(200).send(data)
     }catch(err){
         return res.status(402).send('error')
@@ -19,7 +21,7 @@ const getCommunityDataByName = async(req, res) => {
 
 const getRegionDataByName = async(req, res) => {
     try{
-        const data = await Region.findOne({name: req.params.name})
+        const data = await Region.find({name: req.query.name})
         return res.status(200).send(data)
     }catch(err){
         return res.status(402).send('error')
@@ -28,7 +30,7 @@ const getRegionDataByName = async(req, res) => {
 
 const getCommunityDataByDate = async (req, res) => {
     try{
-        const data = await Community.findOne({$and: [{name: req.params.name},{date : new Date(req.params.fecha)}]})
+        const data = await Community.find({$and: [{name: req.query.name},{date : new Date(req.query.fecha)}]})
         return res.status(200).send(data)
     }catch(err){
         return res.status(402).send('error')
@@ -37,7 +39,7 @@ const getCommunityDataByDate = async (req, res) => {
 
 const getRegionDataByDate = async (req, res) => {
     try{
-        const data = await Region.findOne({$and: [{name: req.params.name},{date : new Date(req.params.fecha)}]})
+        const data = await Region.find({$and: [{name: req.query.name},{date : new Date(req.query.fecha)}]})
         return res.status(200).send(data)
     }catch(err){
         return res.status(402).send('error')
