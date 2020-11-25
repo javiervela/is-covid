@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./Footer.css"
 import Graphic from "./Footer-Components/Graphic"
-import Stats from "./Stats"
+import Stats from "./Footer-Components/Stats"
 
 
 

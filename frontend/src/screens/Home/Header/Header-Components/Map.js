@@ -21,7 +21,7 @@ svg {
     outline: none;
 
     &:hover {
-      fill: red;
+      fill: rgb(255, 99, 132);
     }
   }
 }`;
@@ -39,7 +39,7 @@ svg {
     outline: none;
 
     &:hover {
-      fill: red;
+      fill: rgb(255, 99, 132);
     }
   }
 }`

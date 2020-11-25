@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NavBar from './components/NavBar'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Country from './screens/Home/Country'
 import SignIn from './screens/SignIn/SignIn'
 import SignUp from './screens/SignUp/SignUp'
@@ -18,7 +18,7 @@ function App() {
   return(
     <div className="App">
       <Router history={history}>
-        <NavBar/>
+        
         <Route path="/" exact render={ ()=>{history.push('/España')} }/>
         <Route path="/login" exact component={SignIn}></Route>
         <Route path="/signup" exact component={SignUp}></Route>

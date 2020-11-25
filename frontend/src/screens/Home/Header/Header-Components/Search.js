@@ -58,7 +58,7 @@ const Search = props => {
             </select>
             </section>
         </section>
-        <button className="btn-home"  onClick={handleButton} style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} >Search</button>
+        <button className="btn-home"  onClick={handleButton} style={{backgroundImage: "linear-gradient(to right, pink, rgb(255, 99, 132) , rgba(255, 99, 132, 0.2))"}} >Search</button>
         </section>
         </>
     );
