@@ -12,7 +12,8 @@ dotenv.config()
 
 app.set('port', process.env.PORT || 8080)
 
-syncro.RegionUpdate()
+//syncro.CommunityUpdate()
+//syncro.RegionUpdate()
 
 mongoose.connect(process.env.DB || 'mongodb://localhost:27017/iscovid',
 {

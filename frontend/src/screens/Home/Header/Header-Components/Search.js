@@ -53,7 +53,7 @@ const Search = props => {
                     
             <section className="inputform">
             <select id="inputState" className="form-control select" value={ProvienciaPick} onChange={(e) => setProvienciaPick(e.target.value)} >
-                <option selected> Proviencia </option>
+                <option selected> Provincia </option>
                     {Pro}
             </select>
             </section>

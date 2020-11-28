@@ -24,14 +24,19 @@ svg {
       fill: rgb(255, 99, 132);
     }
   }
-}`;
+}`
 
 const Aragon = styled.div`
-margin: 1rem auto;
-width: 1700px;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+width: 100%;
 
 svg {
   stroke: #fff;
+  width: 600px;
+
 
   path {
     fill: pink;

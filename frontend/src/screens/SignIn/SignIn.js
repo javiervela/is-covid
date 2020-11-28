@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react'
 import logo from '../../public/avatar.svg'
-import './SignIn.css';
+import './SignIn.css'
+import axios from 'axios'
 
 import history from "../../history"
 
 const SignIn = () => {
+    const [Email,setEmail] = useState("")
+    const [Password,setPassword] = useState("")
+    const saveUser = async () => {
+            const user = {email:Email,
+                        password:Password}
+           //const res = await axios.post('http://localhost:8080/public/signIn')
+           history.push('/signIn')
+    }
         return(
             <section className="content">
                 <form onSubmit={()=>{}}>
@@ -20,8 +29,8 @@ const SignIn = () => {
                                 placeholder="Email"
                                 className="input" 
                                 required
-                                value={""}
-                                onChange={()=>{}}
+                                value={Email}
+                                onChange={(v)=>{setEmail(v.target.value)}}
                             />
                         </section>
                         
@@ -34,15 +43,15 @@ const SignIn = () => {
                                 placeholder="Contraseña"
                                 className="input"
                                 required
-                                value={""}
-                                onChange={()=>{}}
+                                value={Password}
+                                onChange={(p)=>{setPassword(p.target.value)}}
                             />
             	        </section>
                     </section>
                     <section className="line"></section>
                     <a className="login-component" href="google.com">Forgot Password?</a>
-            	    <input type="submit" className="btn" value="Login" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}}></input>
-                    <button className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signup');}}>SignUp</button>
+            	    <input type="submit" className="btn" value="Login" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick={saveUser}></input>
+                    <button className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signUp')}}>SignUp</button>
                 </form>
             </section>
         );
