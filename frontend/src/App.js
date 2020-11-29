@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { useReducer, useMemo, useEffect } from 'react';
 import {Router, Route} from 'react-router'
 
 import Country from './screens/Home/Country'
@@ -52,6 +52,8 @@ const App = () => {
     signIn: async(userData,userToken) => {
       try {
         dispatch({type:'LOGIN', Token: userToken, Data:userData});
+        localStorage.setItem('token', userToken);
+        localStorage.setItem('user', userData);
       } catch(err) {
         console.log(err);
       }
@@ -64,6 +66,12 @@ const App = () => {
       dispatch({type:'LOGOUT'});
     }
   }), []);
+
+  useEffect(()=>{
+    const userToken = localStorage.getItem('token');
+    const userData = localStorage.getItem('user');
+    dispatch({type:'LOGIN', Token: userToken, Data:userData});
+  },[])
 
 
   return(
