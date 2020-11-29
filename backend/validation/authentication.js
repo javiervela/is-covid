@@ -28,11 +28,11 @@ const SignUp = async(req,res) => {
     }) 
     const savedUser = await user.save()
 
-    const token = jwt.sign({_id: savedUser._id},process.env.TOKEN,{expiresIn: 60});
+    const token = jwt.sign({_id: savedUser._id},process.env.TOKEN/*,{expiresIn: 60}*/);
 
-    sendEmail(req.body.email,'norepy@user_authentication','Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n')
+    //sendEmail(req.body.email,'norepy@user_authentication','Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n')
 
-    return res.status(201)
+    return res.status(token)
 }
 
 const Confirmation = async(req,res) => {
