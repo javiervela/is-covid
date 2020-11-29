@@ -13,16 +13,14 @@ const SignIn = () => {
     
     const saveUser = async () => {
         try{
-            const user = {email:Email,
-                        password:Password}
-        
             const res = await axios.post("http://localhost:8080/public/signIn",{
                 email: Email,
                 password: Password
             })
-            const userToken = res.headers.auth;
-
-           signIn(user,userToken)
+            console.log(res)
+            const userToken = res.data.token
+            const userData = res.data.user.user.name
+           signIn(userData,userToken)
            history.push('/España')
         }catch(err){
             console.log(err)

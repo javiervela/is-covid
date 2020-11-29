@@ -8,7 +8,7 @@ const NavBar = props => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand href="/">IS-COVID</Navbar.Brand>
             <Nav>
-              <NavDropdown title={props.name.email} id="collasible-nav-dropdown">
+              <NavDropdown title={props.name} id="collasible-nav-dropdown">
 						  	<NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
 						  	<NavDropdown.Item href="/SignOut">Sign Out</NavDropdown.Item>
 						  </NavDropdown>

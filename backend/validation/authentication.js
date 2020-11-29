@@ -60,8 +60,8 @@ const SignIn = async(req,res) => {
         return res.status(401).send('Unauthorized');
     }
     //Create token
-    const token = jwt.sign({_id: user._id},process.env.TOKEN);
-    return res.header('auth',token).send('OK').status(200);
+    const token = jwt.sign({_id: user._id},process.env.TOKEN)
+    res.send({user: user, token: token})
 
 }
 

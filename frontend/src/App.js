@@ -62,9 +62,6 @@ const App = () => {
         console.log(e);
       }
       dispatch({type:'LOGOUT'});
-    },
-    signUp: () => {
-
     }
   }), []);
 
@@ -77,7 +74,7 @@ const App = () => {
           {state.Token == null ?
             <PublicNavBar/>
             :
-            <PrivateNavBar/>
+            <PrivateNavBar name={state.Data}/>
           }
             <Route path="/" exact render={ ()=>{history.push('/España')} }/>
             <Route path="/login" exact component={SignIn}></Route>
