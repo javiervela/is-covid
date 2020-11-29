@@ -3,7 +3,6 @@ const router = require('express').Router();
 const auth = require('../validation/authentication')
 const data = require('../database/config/config')
 
-
 router.post('/signUp', auth.SignUp)
 
 router.post('/signIn', auth.SignIn)

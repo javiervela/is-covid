@@ -45,15 +45,15 @@ const Search = props => {
         <section className="search">
         <section className="selectors">
             <section className="inputform">
-            <select id="inputState" className="form-control select" value={ComunidadPick} onChange={(e) => setComunidadPick(e.target.value)} >
+            <select id="inputState" className="select" value={ComunidadPick} onChange={(e) => setComunidadPick(e.target.value)} >
                     <option selected > Comunidad </option>
                     {Com}
             </select>
             </section>
                     
             <section className="inputform">
-            <select id="inputState" className="form-control select" value={ProvienciaPick} onChange={(e) => setProvienciaPick(e.target.value)} >
-                <option selected> Proviencia </option>
+            <select id="inputState" className="select" value={ProvienciaPick} onChange={(e) => setProvienciaPick(e.target.value)} >
+                <option selected> Provincia </option>
                     {Pro}
             </select>
             </section>

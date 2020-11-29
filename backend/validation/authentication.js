@@ -1,4 +1,4 @@
-const bycript = require('bcrypt');
+const bycript = require('bcryptjs');
 
 
 const { sendEmail } = require('../services/mail');
@@ -11,7 +11,7 @@ const SignUp = async(req,res) => {
 */
     const userExist = await User.findOne({email: req.body.email})
     if(userExist){
-        return res.status(400).send('Bad Request')
+        return res.status(400).send('User already exists')
     }
 
     const salt = await bycript.genSalt(14)

@@ -34,7 +34,7 @@ const RegionInit = async() => {
                 discharges: value.altas,
 
             })
-            console.log(region);
+            //console.log(region);
 
             const dataExist = await Region.findOne({$and:[{date : region.date},{name : region.name}]})
 
@@ -79,7 +79,7 @@ const CommunityInit = async() => {
             const dataExist = await Community.findOne({$and:[{date : community.date},{name : community.name}]})
 
             if(!dataExist){
-                await Community.save()
+               await Community.save()
             }
            
         })
