@@ -9,9 +9,7 @@ const Region = require('../model/region')
 const Community = require('../model/community')
 
 const getCommunityDataByName = async(req, res) => {
-    console.log(req.query.name)
     try{
-        
         const data = await Community.find({name: req.query.name})
         return res.status(200).send(data)
     }catch(err){

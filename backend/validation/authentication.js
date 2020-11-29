@@ -1,7 +1,7 @@
 const bycript = require('bcryptjs');
+const jwt = require('jsonwebtoken')
 
-
-const { sendEmail } = require('../services/mail');
+//const { sendEmail } = require('../services/mail');
 //const { userValidation } = require('../validation/validation');
 const User = require('../database/model/user')
 
@@ -18,21 +18,21 @@ const SignUp = async(req,res) => {
     const hashPassword = await bycript.hash(req.body.password,salt);
    
     const user = new User({
-        name : req.body.name,
-        surname: req.body.surname,
+        user : {name: req.body.name, surname: req.body.surname},
         password: hashPassword,
         birthdate: req.body.birthdate,
         email: req.body.email,
-        sex: req.body.sex,
+        //sex: req.body.sex,
         location: req.body.location
     }) 
+
+    console.log(user)
     const savedUser = await user.save()
 
-    const token = jwt.sign({_id: savedUser._id},process.env.TOKEN/*,{expiresIn: 60}*/);
+    /*const token = jwt.sign({_id: savedUser._id},process.env.TOKEN,{expiresIn: 60});*/
 
     //sendEmail(req.body.email,'norepy@user_authentication','Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n')
 
-    return res.status(token)
 }
 
 const Confirmation = async(req,res) => {
@@ -55,7 +55,7 @@ const SignIn = async(req,res) => {
         return res.status(401).send('Unauthorized');
     }
     //Check the password
-    const validPass = await bcrypt.compare(req.body.pass, user.pass);
+    const validPass = await bycript.compare(req.body.password, user.password);
     if(!validPass){
         return res.status(401).send('Unauthorized');
     }

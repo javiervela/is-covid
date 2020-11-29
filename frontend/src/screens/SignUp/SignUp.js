@@ -22,15 +22,17 @@ const SignUp = () => {
 
       const saveUser = async () => {
         try{
-        const user = {name:Name,
-                    surname:Surname,
-                    email:Email,
-                    password:Password,
-                    sex:Sex,
-                    birthdate: selectedDay,
-                    location:{province:Province, region:Region}}
-       //const res = await axios.post('http://localhost:8080/public/signUp')
-       history.push('/signIn')
+            // AWAIT PROBLEM
+            await axios.post("http://localhost:8080/public/signUp/",{
+                name:Name,
+                surname:Surname,
+                email:Email,
+                password:Password,
+                sex:Sex,
+                birthdate: selectedDay,
+                location:{province:Province, region:Region}
+            })
+            history.push('/login')
        
         } catch (err){
             console.error(err);
@@ -44,7 +46,7 @@ const SignUp = () => {
                      <img src={logo} alt="user icon"/>
                     </section>
                     
-                    <h2 className="title">Register</h2>
+                    <h2 className="title">Registrarse</h2>
                     <section className="form_continer">
                         <section className="form_r">
                         <section className="input-section email">
@@ -86,10 +88,25 @@ const SignUp = () => {
                                     onChange={(e)=>{setEmail(e.target.value)}}
                                 />
                             </section>
-
                         </section>
-                        
+
                         <section className="line"></section>
+                        <section className="input-section email">
+                            <section/>
+                            <div className="form-group col-md-4">
+                                <select id="inputState" className="form-control">
+                                    <option selected>Sexo</option>
+                                    <option value="male">Hombre</option>
+                                    <option value="female">Mujer</option>
+                                    <option value="other">Otro</option>
+                                    <input
+                                         value={Sex}
+                                         onChange={(s)=>{setSex(s.target.value)}}
+                                    ></input>
+                                </select>
+                            </div>
+                        </section>
+                     
                         </section>
                         <section className="form_r">
                         <section className="input-section email">
@@ -138,41 +155,25 @@ const SignUp = () => {
                         </section>
 
                         </section>
+                        
                         <section className="line"></section>
-                        <section className="input-section email">
-                            <section/>
-                            <div className="form-group col-md-4">
-                                <select id="inputState" className="form-control">
-                                    <option selected>Sexo</option>
-                                    <option>Hombre</option>
-                                    <option>Mujer</option>
-                                    <option>Otro</option>
-                                    <input
-                                         value={Sex}
-                                         onChange={(s)=>{setSex(s.target.value)}}
-                                    ></input>
-                                </select>
-                                </div>
-                        </section>
-                       
-                        <section className="input-section email">
-                        <section style={{width: '100%'}}>
-                            <DatePicker
-                                value={selectedDay}
-                                onChange={setSelectedDay}
-                                colorPrimary="#38d39f"
-                                inputClassName="calendar"
-                                inputPlaceholder="fecha de nacimiento"
-                            
-                            />  
-                            </section> 
-                        </section>
+                            <section className="input-section email" style={{paddingTop: "30px"}}>
+                                    <section style={{width: '100%'}}>
+                                        <DatePicker
+                                            value={selectedDay}
+                                            onChange={setSelectedDay}
+                                            colorPrimary="#38d39f"
+                                            inputClassName="calendar"
+                                            inputPlaceholder="fecha de nacimiento"
+                                            />  
+                                    </section> 
+                            </section>
                         </section>
                         </section>
                         
-                        <a className="login-component" href="google.com">Forgot Password?</a>
-            	        <button className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick={()=>{history.push('/signIn')}}>Login</button>
-                        <input type="submit" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick = {saveUser}></input>
+                        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick = {saveUser}>SignUp</button>
+            	        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/login')}}>Login</button>
+                        
                         
                 </form>
             </section>

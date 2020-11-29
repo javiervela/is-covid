@@ -7,7 +7,6 @@ const NavBar = () => {
   return(
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Navbar.Brand href="/">IS-COVID</Navbar.Brand>
-         
             <Nav>
               <NavDropdown title="Account" id="collasible-nav-dropdown">
 						  	<NavDropdown.Item href="/login">Log In</NavDropdown.Item>

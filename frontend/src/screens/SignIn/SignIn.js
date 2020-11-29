@@ -12,12 +12,21 @@ const SignIn = () => {
     const { signIn } = useContext(AuthContext);
     
     const saveUser = async () => {
+        try{
             const user = {email:Email,
                         password:Password}
-            const res = {Token:40}
-           //const res = await axios.post('http://localhost:8080/public/signIn')
-           signIn(user,res.Token)
+        
+            const res = await axios.post("http://localhost:8080/public/signIn",{
+                email: Email,
+                password: Password
+            })
+            const userToken = res.headers.auth;
+
+           signIn(user,userToken)
            history.push('/España')
+        }catch(err){
+            console.log(err)
+        }
     }
         return(
             <section className="content">
@@ -54,9 +63,9 @@ const SignIn = () => {
             	        </section>
                     </section>
                     <section className="line"></section>
-                    <a className="login-component" href="google.com">Forgot Password?</a>
-            	    <input type="submit" className="btn" value="Login" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick={saveUser}></input>
-                    <button className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signUp')}}>SignUp</button>
+                    <a className="login-component" href="/recovery">Forgot Password?</a>
+            	    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick={saveUser}>Log In</button>
+                    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signUp')}}>SignUp</button>
                 </form>
             </section>
         );

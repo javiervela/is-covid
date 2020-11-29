@@ -26,7 +26,7 @@ const User = new Schema({
         max: 24
     },
     birthdate: {
-        type: Date,
+        type: {day: Number, month: Number, year: Number},
         required: true,
     },
     email: {
@@ -36,6 +36,7 @@ const User = new Schema({
     sex: {
         type: String,
         required: false,
+        default: 'other',
         enum: ['male','female','other']
     },
     verificated: {
@@ -45,7 +46,7 @@ const User = new Schema({
     },
     location: {
         postcode: Number,
-        community: String,
+        province: String,
         region: String,
         poblation: String
     }

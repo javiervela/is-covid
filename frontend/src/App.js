@@ -3,6 +3,7 @@ import {Router, Route} from 'react-router'
 
 import Country from './screens/Home/Country'
 import SignIn from './screens/SignIn/SignIn'
+import Recovery from './screens/Recovery/Recovery'
 import SignUp from './screens/SignUp/SignUp'
 import Province from './screens/Home/Province'
 import Region from './screens/Home/Region'
@@ -14,6 +15,7 @@ import history from './history'
 
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const App = () => {
 
@@ -69,31 +71,26 @@ const App = () => {
 
   return(
     <AuthContext.Provider value={authContext}>
-      {state.Token == null ?
+      
         <section className="App">
           <Router history={history}>
+          {state.Token == null ?
             <PublicNavBar/>
+            :
+            <PrivateNavBar/>
+          }
             <Route path="/" exact render={ ()=>{history.push('/España')} }/>
             <Route path="/login" exact component={SignIn}></Route>
+            <Route path="/recovery" exact component={Recovery}></Route>
             <Route path="/signup" exact component={SignUp}></Route>
+            <Route path="/Profile" exact component={Country}></Route>
+            <Route path="/SignOut" exact render={ () => {history.push('/España')}}></Route>
             <Route path="/España" exact component={Country}></Route>
             <Route path="/España/:province" exact component={Province} ></Route>
             <Route path="/España/:province/:region" exact component={Region} ></Route>
           </Router>
         </section>
-      :
-        <section className="App">
-          <Router history={history}>
-            <PrivateNavBar name={state.Data}/>
-            <Route path="/" exact render={ ()=>{history.push('/España')} }/>
-            <Route path="/login" exact component={SignIn}></Route>
-            <Route path="/signup" exact component={SignUp}></Route>
-            <Route path="/España" exact component={Country}></Route>
-            <Route path="/España/:province" exact component={Province} ></Route>
-            <Route path="/España/:province/:region" exact component={Region} ></Route>
-          </Router>
-        </section>
-      }
+      
     </AuthContext.Provider>
   );
 }
