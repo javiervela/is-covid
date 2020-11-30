@@ -12,6 +12,8 @@ const NavBar = props => {
 						  	<NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
 						  	<NavDropdown.Item href="/SignOut">Sign Out</NavDropdown.Item>
 						  </NavDropdown>
+              <Nav.Link href="/info">Información</Nav.Link>
+              <Nav.Link href="/myinfo">Mi Información</Nav.Link>
             </Nav>
       </Navbar>
   );
