@@ -7,11 +7,11 @@ import './Profile.css'
 
 
 const Profile = props => {
-    const [User, setUser] = useState();
+    const [User, setUser] = useState({});
     useEffect(() => {
         async function fetchData(){
           try{
-              console.log(props)
+        
               
             const res = await axios.get('http://localhost:8080/public/user/',{
               params: {
