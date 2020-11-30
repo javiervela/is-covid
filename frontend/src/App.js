@@ -16,13 +16,18 @@ import history from './history'
 import "./App.css"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Tweets from './screens/Tweets/Tweets';
+import MyInfo from './screens/Information/information';
 
 
 const App = () => {
 
   const initialState = {
     Token: null,
-    Data: null
+    Data: {
+      name: null,
+      province: null,
+      region: null
+    }
   }
 
 
@@ -54,7 +59,9 @@ const App = () => {
       try {
         dispatch({type:'LOGIN', Token: userToken, Data:userData});
         localStorage.setItem('token', userToken);
-        localStorage.setItem('user', userData);
+        localStorage.setItem('name', userData.name);
+        localStorage.setItem('province', userData.province);
+        localStorage.setItem('region', userData.region);
       } catch(err) {
         console.log(err);
       }
@@ -63,8 +70,12 @@ const App = () => {
 
   useEffect(()=>{
     const userToken = localStorage.getItem('token');
-    const userData = localStorage.getItem('user');
-    dispatch({type:'LOGIN', Token: userToken, Data:userData});
+    const userData = {
+      name : localStorage.getItem('name'),
+      province : localStorage.getItem('province'),
+      region : localStorage.getItem('region')
+    }
+    dispatch({type:'LOGIN', Token: userToken, Data : userData});
   },[])
 
 
@@ -77,9 +88,9 @@ const App = () => {
             <PublicNavBar/>
             :
             <>
-            <PrivateNavBar name={state.Data}/>
+            <PrivateNavBar name={state.Data.name} province={state.Data.province} region={state.Data.region} />
             <Route path="/info" exact component={Tweets}/>
-            <Route path="/myinfo" exact component={Tweets}/>
+            <Route path="/myinfo/:province/:region" exact component={MyInfo}/>
             </>
           }
             
@@ -92,11 +103,13 @@ const App = () => {
             <Route path="/España" exact component={Country}></Route>
             <Route path="/España/:province" exact component={Province} ></Route>
             <Route path="/España/:province/:region" exact component={Region} ></Route>
+            
+            
           </Router>
         </section>
       
     </AuthContext.Provider>
   );
 }
-
+//<Route path="/th" exact render={history.push(`/myinfo/${state.Data.province}/${state.Data.region}`)}/>
 export default App;

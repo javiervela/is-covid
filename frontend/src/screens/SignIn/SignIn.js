@@ -17,9 +17,12 @@ const SignIn = () => {
                 email: Email,
                 password: Password
             })
-            console.log(res)
             const userToken = res.data.token
-            const userData = res.data.user.user.name
+            const userData = {
+                name: res.data.user.user.name,
+                province: res.data.user.location.province,
+                region: res.data.user.location.region
+            }
            signIn(userData,userToken)
            history.push('/España')
         }catch(err){
@@ -62,8 +65,8 @@ const SignIn = () => {
                     </section>
                     <section className="line"></section>
                     <a className="login-component" href="/recovery">Forgot Password?</a>
-            	    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick={saveUser}>Log In</button>
-                    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/signUp')}}>SignUp</button>
+            	    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)", color: 'white'}} onClick={saveUser}>Log In</button>
+                    <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)", color: 'white'}} onClick={()=>{history.push('/signUp')}}>SignUp</button>
                 </form>
             </section>
         );

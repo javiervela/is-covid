@@ -22,7 +22,7 @@ const SignUp = () => {
 
       const saveUser = async () => {
         try{
-            // AWAIT PROBLEM
+
             await axios.post("http://localhost:8080/public/signUp/",{
                 name:Name,
                 surname:Surname,
@@ -93,8 +93,8 @@ const SignUp = () => {
                         <section className="line"></section>
                         <section className="input-section email">
                             <section/>
-                            <div className="form-group col-md-4">
-                                <select id="inputState" className="form-control">
+                            <section className="form-group col-md-4">
+                                <select id="inputState" style={{width:"400px"}}>
                                     <option selected>Sexo</option>
                                     <option value="male">Hombre</option>
                                     <option value="female">Mujer</option>
@@ -104,7 +104,7 @@ const SignUp = () => {
                                          onChange={(s)=>{setSex(s.target.value)}}
                                     ></input>
                                 </select>
-                            </div>
+                            </section>
                         </section>
                      
                         </section>
@@ -132,8 +132,8 @@ const SignUp = () => {
                                     placeholder="Comunidad"
                                     className="input"
                                     required
-                                    value={Region}
-                                    onChange={(r)=>{setRegion(r.target.value)}}
+                                    value={Province}
+                                    onChange={(r)=>{setProvince(r.target.value)}}
                                 />
             	            </section>
                         </section>
@@ -148,8 +148,8 @@ const SignUp = () => {
                                     placeholder="Provincia"
                                     className="input"
                                     required
-                                    value={Province}
-                                    onChange={(p)=>{setProvince(p.target.value)}}
+                                    value={Region}
+                                    onChange={(p)=>{setRegion(p.target.value)}}
                                 />
             	            </section>
                         </section>
@@ -171,8 +171,8 @@ const SignUp = () => {
                         </section>
                         </section>
                         
-                        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)"}} onClick = {saveUser}>SignUp</button>
-            	        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)"}} onClick={()=>{history.push('/login')}}>Login</button>
+                        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #32be8f, #38d39f, #32be8f)",color: 'white'}} onClick = {saveUser}>SignUp</button>
+            	        <button type="button" className="btn" style={{backgroundImage: "linear-gradient(to right, #EA4C46, #F07470, #F1959B)",color: 'white'}} onClick={()=>{history.push('/login')}}>Login</button>
                         
                         
                 </form>

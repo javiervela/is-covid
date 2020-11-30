@@ -13,10 +13,11 @@ const NavBar = props => {
 						  	<NavDropdown.Item href="/SignOut">Sign Out</NavDropdown.Item>
 						  </NavDropdown>
               <Nav.Link href="/info">Información</Nav.Link>
-              <Nav.Link href="/myinfo">Mi Información</Nav.Link>
+              <Nav.Link href={`/myinfo/${props.province}/${props.region}`}>Mi Información</Nav.Link>
             </Nav>
       </Navbar>
   );
 }
+//
 export default NavBar;
 
