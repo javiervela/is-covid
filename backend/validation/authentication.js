@@ -69,4 +69,10 @@ const SignOut = async(req,res) => {
     
 }
 
-module.exports = {SignIn,SignUp,Confirmation}
+const getUser = async(req,res) => {
+    console.log(req.query.id)
+    const user = await User.findById(req.query.id)
+    return res.send(user)
+}
+
+module.exports = {SignIn,SignUp,Confirmation,getUser}

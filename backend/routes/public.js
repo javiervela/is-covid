@@ -9,6 +9,8 @@ router.post('/signIn', auth.SignIn)
 
 router.post('/confirmation/:token', auth.Confirmation)
 
+router.get('/user', auth.getUser);
+
 router.get('/datos-comunidad', data.getCommunityDataByName);
 
 router.get('/datos-region/', data.getRegionDataByName);

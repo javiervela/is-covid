@@ -21,8 +21,10 @@ const SignIn = () => {
             const userData = {
                 name: res.data.user.user.name,
                 province: res.data.user.location.province,
-                region: res.data.user.location.region
+                region: res.data.user.location.region,
+                id : res.data.user._id
             }
+            console.log(res.data)
            signIn(userData,userToken)
            history.push('/España')
         }catch(err){

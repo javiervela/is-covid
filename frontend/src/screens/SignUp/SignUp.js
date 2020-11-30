@@ -60,7 +60,6 @@ const SignUp = () => {
                                     onChange={(n)=>{setName(n.target.value)}}
                                 />
                             </section>
-
                         </section>
                         <section className="line"></section>
                         <section className="input-section email">
@@ -74,8 +73,8 @@ const SignUp = () => {
                                     onChange={(s)=>{setSurname(s.target.value)}}
                                 />
                             </section>
-
                         </section>
+
                         <section className="line"></section>
                         <section className="input-section email">
                             <section/> 
@@ -106,7 +105,6 @@ const SignUp = () => {
                                 </select>
                             </section>
                         </section>
-                     
                         </section>
                         <section className="form_r">
                         <section className="input-section email">
@@ -121,6 +119,7 @@ const SignUp = () => {
                                 />
             	            </section>
                         </section>
+                        
                         <section className="line"></section>
 
                     
@@ -137,9 +136,9 @@ const SignUp = () => {
                                 />
             	            </section>
                         </section>
-
-                        <section className="line"></section>
                         </section>
+                        <section className="line"></section>
+                        
                         <section className="form_r">
                         <section className="input-section email">
                             <section/>
