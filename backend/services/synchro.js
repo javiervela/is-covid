@@ -10,7 +10,7 @@ const { csv } = require('csvtojson')
 const folder = __dirname + "/../public/"
 
 const RegionInit = async() => {
-
+    console.log("fetch province")
     const writer = fs.createWriteStream(folder + "Aragon_Region.csv")
 
     // Region
@@ -39,7 +39,8 @@ const RegionInit = async() => {
             const dataExist = await Region.findOne({$and:[{date : region.date},{name : region.name}]})
 
             if(!dataExist){
-                await Region.save()
+                await region.save()
+                console.log(region)
             }
         })
     })
@@ -51,6 +52,7 @@ const RegionInit = async() => {
 
 const CommunityInit = async() => {
 
+    console.log("fetch Comunity")
     const writer = fs.createWriteStream(folder + "Aragon_Comunidad.csv")
 
     
@@ -79,7 +81,8 @@ const CommunityInit = async() => {
             const dataExist = await Community.findOne({$and:[{date : community.date},{name : community.name}]})
 
             if(!dataExist){
-               await Community.save()
+               await community.save()
+               console.log(community)
             }
            
         })
@@ -113,7 +116,6 @@ const RegionUpdate = async() => {
                 uciCheckIn: value.ingresos_uci,
                 deaths: value.fallecimientos,
                 discharges: value.altas,
-
             })
             console.log(region);
 
