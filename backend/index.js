@@ -5,15 +5,12 @@ const cors = require('cors')
 const morgan = require('morgan')
 const public = require('./routes/public')
 const mongoose = require('mongoose')
-const syncro = require('./services/synchro')
+
 
 dotenv.config()
 
 
 app.set('port', process.env.PORT || 8080)
-
-//syncro.CommunityInit()
-//syncro.RegionInit()
 
 mongoose.connect(process.env.DB || 'mongodb://localhost:27017/iscovid',
 {
