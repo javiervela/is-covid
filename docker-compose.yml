@@ -1,4 +1,4 @@
-version: "1"
+version: "1.1"
 services:
   react-app:
     image: javiervela33/react-app
@@ -14,13 +14,12 @@ services:
       - "8080:8080"
     networks:
       - backend
-  nginx:
-    image: nginx
+  nginx-mern:
+    image: javiervela33/nginx-mern
     ports:
       - "80:80"
     networks:
       - frontend
-
 networks:
   frontend:
     driver: bridge
