@@ -1,0 +1,24 @@
+version: "1"
+services:
+  react-app:
+    image: javiervela33/react-app
+    stdin_open: true
+    ports: 
+      - "3000:3000"
+    networks:
+      - mern-app
+  api-server:
+    image: javiervela33/api-server
+    ports:
+      - "8080:8080"
+    networks:
+      - mern-app
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    networks:
+      - mern-app
+networks:
+  mern-app:
+    driver: bridge
