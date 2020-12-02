@@ -6,19 +6,23 @@ services:
     ports: 
       - "3000:3000"
     networks:
-      - mern-app
+      - frontend
+      - backend
   api-server:
     image: javiervela33/api-server
     ports:
       - "8080:8080"
     networks:
-      - mern-app
+      - backend
   nginx:
     image: nginx
     ports:
       - "80:80"
     networks:
-      - mern-app
+      - frontend
+
 networks:
-  mern-app:
+  frontend:
+    driver: bridge
+  backend:
     driver: bridge
