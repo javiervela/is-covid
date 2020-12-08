@@ -29,7 +29,7 @@ const Province = props => {
   useEffect(() => {
     async function fetchData(){
       try{
-        const res = await axios.get('http://localhost:8080/public/datos-comunidad/',{
+        const res = await axios.get('http://localhost:80/public/datos-comunidad/',{
           params: {
             name: props.match.params.province
           }

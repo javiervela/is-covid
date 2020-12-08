@@ -23,7 +23,7 @@ const SignUp = () => {
       const saveUser = async () => {
         try{
 
-            await axios.post("http://localhost:8080/public/signUp/",{
+            await axios.post("http://localhost:80/public/signUp/",{
                 name:Name,
                 surname:Surname,
                 email:Email,

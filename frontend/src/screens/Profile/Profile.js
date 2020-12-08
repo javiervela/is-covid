@@ -13,7 +13,7 @@ const Profile = props => {
           try{
         
               
-            const res = await axios.get('http://localhost:8080/public/user/',{
+            const res = await axios.get('http://localhost:80/public/user/',{
               params: {
                 id: props.id
               }

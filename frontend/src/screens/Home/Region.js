@@ -22,7 +22,7 @@ const Region = props => {
   useEffect(() => {
     async function fetchData(){
       try{
-        const res = await axios.get('http://localhost:8080/public/datos-region/',{
+        const res = await axios.get('http://localhost:80/public/datos-region/',{
           params: {
             name: props.match.params.region
           }
