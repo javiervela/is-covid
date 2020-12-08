@@ -4,4 +4,4 @@ COPY nginx.conf /etc/nginx/
 
 EXPOSE 80
 
-CMD ["/bin/sh", "nginx"]
+CMD ["nginx", "-g", "daemon off;"]

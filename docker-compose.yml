@@ -1,25 +1,27 @@
-version: "1.1"
 services:
   react-app:
     image: javiervela33/react-app
     stdin_open: true
-    ports: 
-      - "3000:3000"
+    #ports: 
+    #  - "3000:3000"
     networks:
       - frontend
-      - backend
   api-server:
     image: javiervela33/api-server
-    ports:
-      - "8080:8080"
+    #ports:
+    #  - "8080:8080"
     networks:
       - backend
-  nginx-mern:
-    image: javiervela33/nginx-mern
+  nginx-proxy:
+    image: javiervela33/nginx-proxy
     ports:
       - "80:80"
     networks:
       - frontend
+      - backend
+    depends_on:
+      - react-app
+      - api-server
 networks:
   frontend:
     driver: bridge
