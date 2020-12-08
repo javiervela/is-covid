@@ -10,13 +10,13 @@ const MyInfo = props => {
         async function fetchData(){
           try{
 
-            const resProvience = await axios.get('http://localhost:8080/public/datos-comunidad/',{
+            const resProvience = await axios.get('http://localhost:80/public/datos-comunidad/',{
               params: {
                 name: props.match.params.province
               }
             })
 
-            const resRegion = await axios.get('http://localhost:8080/public/datos-region/',{
+            const resRegion = await axios.get('http://localhost:80/public/datos-region/',{
               params: {
                 name: props.match.params.region
               }

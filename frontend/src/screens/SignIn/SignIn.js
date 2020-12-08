@@ -13,7 +13,7 @@ const SignIn = () => {
     
     const saveUser = async () => {
         try{
-            const res = await axios.post("http://localhost:8080/public/signIn",{
+            const res = await axios.post("http://localhost:80/public/signIn",{
                 email: Email,
                 password: Password
             })
